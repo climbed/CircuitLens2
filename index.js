@@ -6,23 +6,23 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // to parse json
 
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // home is /
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // about page is /about
 app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'about.html'));
+  res.sendFile(path.join(__dirname, 'public', 'about.html'));
 });
 
-
-//example page is /examples
+// examples page is /examples
 app.get('/examples', (req, res) => {
-  res.sendFile(path.join(__dirname, 'examples.html'));
+  res.sendFile(path.join(__dirname, 'public', 'examples.html'));
 });
 
 
